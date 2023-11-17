@@ -1,4 +1,4 @@
-import { PDFDownloadLink } from "@react-pdf/renderer";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 import MyDocument from "./components/Documents/MyDocument";
 
 import "./App.css";
@@ -226,9 +226,9 @@ const App = () => {
           </PDFDownloadLink>
         )}
       </div>
-      {/* <PDFViewer className="container">
+      <PDFViewer className="container">
         <MyDocument data={data} />
-      </PDFViewer> */}
+      </PDFViewer>
     </>
   );
 };
