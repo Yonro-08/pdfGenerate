@@ -9,6 +9,10 @@
   height: max-content;
   overflow: hidden;
 }
+.containerPDf {
+  width: 100vw;
+  height: 99vh;
+}
 
 .form {
   display: flex;

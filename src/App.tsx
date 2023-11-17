@@ -226,7 +226,7 @@ const App = () => {
           </PDFDownloadLink>
         )}
       </div>
-      <PDFViewer className="container">
+      <PDFViewer className="containerPDf">
         <MyDocument data={data} />
       </PDFViewer>
     </>
