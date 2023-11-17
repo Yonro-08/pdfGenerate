@@ -20,12 +20,17 @@ const App = () => {
     correspondentAccount: "",
     checkingAccount: "",
   });
+  const [contract, setContract] = useState({
+    services: "",
+    price: "",
+    expirationDate: "",
+    fine: "0.2%",
+  });
   const [isVisible, setIsVisible] = useState(false);
 
   const [data, setData] = useState({
     city: "Москва",
     date: new Date(),
-    expirationDate: "01.01.2024",
     paymentMethod: "безналичными",
     company: {
       director: {
@@ -38,8 +43,9 @@ const App = () => {
       },
     },
     contract: {
-      services: ["- транспортные", "- компьютерные"],
-      price: 100000,
+      services: "- транспортные",
+      price: "100000",
+      expirationDate: "01.01.2024",
       fine: "0.2%",
       bankDetails: {
         checkingAccount: "№0000000000000",
@@ -66,17 +72,40 @@ const App = () => {
           <h2>Детали Договора</h2>
           <label>
             Услуги заказчика:
-            <input type="text" />
+            <input
+              value={contract.services}
+              type="text"
+              onChange={(e) => {
+                const newContract = { ...contract };
+                newContract.services = e.target.value;
+                setContract(newContract);
+              }}
+            />
           </label>
           <label>
             Дата завершения договора:
-            <input type="date" />
+            <input
+              value={contract.expirationDate}
+              type="date"
+              onChange={(e) => {
+                const newContract = { ...contract };
+                newContract.expirationDate = e.target.value;
+                setContract(newContract);
+              }}
+            />
           </label>
           <label>
             Стоимость услуг
-            <input type="number" />
+            <input
+              type="number"
+              value={contract.price}
+              onChange={(e) => {
+                const newContract = { ...contract };
+                newContract.price = e.target.value;
+                setContract(newContract);
+              }}
+            />
           </label>
-          <button onClick={() => {}}></button>
         </form>
         <form className="form">
           <h2>Детали Заказчика</h2>
@@ -210,7 +239,7 @@ const App = () => {
           onClick={() => {
             const newData = { ...data };
             newData.customer = customer;
-            newData.contract.bankDetails = bankDetails;
+            newData.contract = { ...contract, bankDetails };
             setData(newData);
             setIsVisible(true);
           }}

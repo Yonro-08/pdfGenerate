@@ -2,7 +2,6 @@ export type MyDocumentProps = {
   data: {
     city: string;
     date: Date;
-    expirationDate: string;
     paymentMethod: string;
     company: {
       director: {
@@ -15,8 +14,9 @@ export type MyDocumentProps = {
       };
     };
     contract: {
-      services: string[];
-      price: number;
+      services: string;
+      price: string;
+      expirationDate: string;
       fine: string;
       bankDetails: {
         name: string;
