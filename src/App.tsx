@@ -1,4 +1,4 @@
-import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import MyDocument from "./components/Documents/MyDocument";
 
 import "./App.css";
